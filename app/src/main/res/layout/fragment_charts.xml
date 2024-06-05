@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="400dp"
     android:background="@color/beanch"
     tools:context=".ChartsFragment">
 
     <LinearLayout
+        android:id="@+id/timeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -87,8 +88,14 @@
             android:layout_height="37dp"
             android:layout_marginTop="4dp"
             android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
-
     </LinearLayout>
 
+    <!-- WebView to display the Binance chart -->
+
+
+    <com.github.mikephil.charting.charts.CandleStickChart
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

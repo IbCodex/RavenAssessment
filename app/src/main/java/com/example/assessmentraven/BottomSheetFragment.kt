@@ -1,25 +1,23 @@
 package com.example.assessmentraven
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.lifecycleScope
-import com.example.assessmentraven.adapters.BuyAndSellAdapters
-import com.example.assessmentraven.adapters.ChartsViewPagerAdapterTwo
+import com.example.assessmentraven.adapters.AvailableOptionsAdapter
+import com.example.assessmentraven.adapters.NumberOptionsAdapter
 import com.example.assessmentraven.databinding.FragmentBottomSheetBinding
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.coroutines.launch
 
 
 class BottomSheetFragment : Fragment() {
  private var _binding: FragmentBottomSheetBinding? = null
     private val binding get() = _binding!!
-    private val tabTitle = arrayListOf("Buy", "Sell" )
+    private val tabDetails = arrayListOf("Buy", "Sell" )
     private val tabStateViewModel : TabStateViewModel by activityViewModels()
+    lateinit var availableOptionsAdapter: AvailableOptionsAdapter
+    lateinit var numberOptionsAdapter: NumberOptionsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,39 +31,30 @@ class BottomSheetFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setUpTabLayoutWitViewPaggerr()
 
-        lifecycleScope.launch{
-            tabStateViewModel.viewPagerTwoTabState.collect{
-                val tab = binding.tabletSell.getTabAt(it)
-                tab?.select()
-                binding.viewpager2Seller.setCurrentItem(it,false)
-            }
+        availableOptionsAdapter = AvailableOptionsAdapter(requireContext())
+        binding.genderSpinner.adapter = availableOptionsAdapter
+
+
+        numberOptionsAdapter = NumberOptionsAdapter(requireContext())
+        binding.currency.adapter = numberOptionsAdapter
+
+
+
+        binding.buyNow.setOnClickListener {
+            binding.buyNow.setBackgroundResource(R.drawable.bg_selected)
+            binding.buyNow.setBackgroundResource(0)
         }
+
+        binding.sellNow.setOnClickListener {
+            binding.sellNow.setBackgroundResource(R.drawable.bg_selected)
+            binding.sellNow.setBackgroundResource(0)
+        }
+
     }
 
-    private fun setUpTabLayoutWitViewPaggerr() {
-        binding.viewpager2Seller.adapter = BuyAndSellAdapters(this)
-        TabLayoutMediator(
-            binding.tabletSell,
-            binding.viewpager2Seller
-        ) { tab, position ->
-            tab.text = tabTitle[position]
-        }.attach()
-
-
-        binding.tabletSell.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                if (tab != null) {
-                    tabStateViewModel.setRewardsViewPager(tab.position)
-                }
-            }
-
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
-            }
-
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-            }
-        })
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -290,6 +290,63 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/bim"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/layoutƒive"
+            tools:layout_editor_absoluteY="217dp">
+
+
+            <TextView
+                android:id="@+id/buyNow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/customs_backgrounds"
+                android:gravity="center"
+                android:text="Buy"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/sellNow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/customs_backgroundss"
+                android:gravity="center"
+                android:text="Sell"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline6"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

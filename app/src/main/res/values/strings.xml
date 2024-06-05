@@ -5,5 +5,36 @@
 
     <string name="price">Price \n (USDT)</string>
     <string name="amount">Amount \n (BTC)</string>
+
+    <string name="checkBox5_text">Post Only</string>
+
+
+    <string-array name="available_options">
+        <item>Available</item>
+        <item>Unavailable</item>
+        <item>Other</item>
+    </string-array>
+
+
+    <string-array name="currency_options">
+        <item>NGN</item>
+        <item>USD</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="number_options">
+        <item>10</item>
+        <item>9</item>
+        <item>8</item>
+        <item>7</item>
+        <item>6</item>
+        <item>5</item>
+        <item>4</item>
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+
     <string name="dummy_text">Lorem ipsum dolor sit amet, consectetur\nadipiscing elit. Id pulvinar nullam sit imperdiet\npulvinar.</string>
 </resources>

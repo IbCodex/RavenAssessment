@@ -26,18 +26,10 @@ private var _binding: FragmentOpenOrdersBinding? = null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+    }
 
-        val bottomSheetDialog = BottomSheetDialog(requireContext(), R.style.BottomSheetDialogTheme)
-        val bottomSheetView = LayoutInflater.from(requireContext()).inflate(R.layout.fragment_bottom_sheet, null)
-        bottomSheetDialog.setContentView(bottomSheetView)
-
-
-        binding.buyNow.setOnClickListener {
-
-        }
-
-        binding.buyNow.setOnClickListener {
-            bottomSheetDialog.show()
-        }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

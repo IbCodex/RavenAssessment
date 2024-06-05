@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:id="@+id/constraint"
-    android:layout_height="wrap_content"
+    android:layout_height="70dp"
     android:background="@color/beanch"
-    android:padding="12dp"
+    android:padding="8dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
